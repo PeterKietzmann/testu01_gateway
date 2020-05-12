@@ -12,5 +12,6 @@ RUN ./bin/testu01_gateway --help
 FROM ubuntu:18.04
 WORKDIR /root
 COPY --from=0 /app/build/bin/testu01_gateway testu01_gateway
+RUN apt-get update
+RUN apt-get -q install -y  python3 lib32z1
 RUN ./testu01_gateway --help
-ENTRYPOINT ["/root/testu01_gateway"]
